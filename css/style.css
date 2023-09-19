@@ -18,7 +18,9 @@
 .r_h33{
     height: 245px;
 }
-
+.r_hand{
+    
+}
 .a_1_bt{
     height: 60px;
     width: 50px;
@@ -111,9 +113,7 @@
     height: 20px;
 }
 .r_left_pinky{
-    display: none;
-    left: 217px;
+    
+    left: 255px;
     top:90px;
-}
-.r_keyboard{
 }

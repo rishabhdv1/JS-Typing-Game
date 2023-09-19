@@ -21,6 +21,13 @@ let logout = () =>{
     //Page reload
     window.location.reload();
 }
+let playSound = () =>{
+    console.log('Good Morning');
+    let at = document.querySelector('.r_audio')
+    at.play();
+}
+
+
 
 // ()(); IIFE Immediatelt Invoked Function Expression
 (()=>{
@@ -41,9 +48,15 @@ let logout = () =>{
     }
     // Check if the localStorage is set or not
     if(fn !== null){
-        document.querySelector('.r_welcome').innerHTML = 'Welcome '+fn +" "+ln + '<button class="btn btn-sm btn-danger mt-3 me-3" onclick="logout()" >Log Out</button>';
+        document.querySelector('.r_welcome').innerHTML = 'Welcome '+fn +" "+ln + '<button class="r_welcome1 btn btn-sm float-end btn-danger mt-3 me-3" onclick="logout()" >Log Out</button>';
     }
 
+
+    //Keypress sound play
+    document.addEventListener('keypress',()=>{
+        console.log('welcome');
+    })
+    //documen = whole website
 
 
 })();
