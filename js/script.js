@@ -6,7 +6,6 @@ let saveRegistrationInfo = () =>{
     let fn = document.getElementById("first_name").value;
     let ln = document.getElementById("last_name").value;
 
-
     console.log(fn);
     console.log(ln);
     window.localStorage.setItem('first_name',fn)
@@ -21,31 +20,39 @@ let logout = () =>{
     //Page reload
     window.location.reload();
 }
-let playSound = () =>{
-    console.log('Good Morning');
+
+let playSound = (e) =>{
+    console.log();
+    //let a = document.querySelector('.r_a');
+    //console.log(a.classList.add('r_active'));
+    //console.log('Good Morning');
     let at = document.querySelector('.r_audio')
     at.play();
 }
 
-
-
 // ()(); IIFE Immediatelt Invoked Function Expression
+//Onpage load
 (()=>{
-    let fn = window.localStorage.getItem('first_name')
-    let ln = window.localStorage.getItem('last_name')
+
+
+
+    let fn = window.localStorage.getItem('first_name');
+    let ln = window.localStorage.getItem('last_name');
+    
+
     console.log('Page loaded successfully');
     // Get a reference to the modal element
     var modal = document.getElementById('registrationModal');
 
     // Create a Bootstrap modal instance using the modal element
     var modalInstance = new bootstrap.Modal(modal);
-
     // Call the `show` method on the modal instance to
     console.log(fn);
-    if(window.localStorage.getItem('first_name') === null ){
+    if(fn === null ){
         //True
         modalInstance.show();
     }
+
     // Check if the localStorage is set or not
     if(fn !== null){
         document.querySelector('.r_welcome').innerHTML = 'Welcome '+fn +" "+ln + '<button class="r_welcome1 btn btn-sm float-end btn-danger mt-3 me-3" onclick="logout()" >Log Out</button>';
@@ -53,10 +60,25 @@ let playSound = () =>{
 
 
     //Keypress sound play
-    document.addEventListener('keypress',()=>{
-        console.log('welcome');
+    document.addEventListener('keypress',(e)=>{
+        console.log('->',e.keyCode);
+        if(e.keyCode == 97){
+
+            document.querySelector('.l_pinky').style.display = 'block';
+        }
+        //document = whole website
+        playSound();
+
+    });
+    
+    document.addEventListener('keyup',(e)=>{
+        console.log(e);
+        var elements = document.getElementsByClassName('r_active');
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.remove('r_active');
+        }
+        document.querySelector('.r_left_pinky').style.display = 'none';
     })
-    //documen = whole website
-
-
 })();
+//()(); IIFE
